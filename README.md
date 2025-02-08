@@ -1,16 +1,16 @@
 ## Run Raft-Stereo
 
-Raft-Stereo is a Python-based codebase, so we will set up a dedicated environment for it.
+[Download models](https://www.dropbox.com/s/ftveifyqcomiwaq/models.zip&dl=1) and place into `models/` folder (or use official doc method - you can find on [official page](https://github.com/princeton-vl/RAFT-Stereo)).
 
-Download models (or use official doc method - either manual or through a suggested `bash` script):
+Raft-Stereo is a Python-based codebase, so we will set up a dedicated environment for it. The GPU is required, and so `conda` will be used. I already have the latest SDK installed and will use a matching Torch versions for it:
+
 ```bash
-make models.fetch
-make models.install
+conda create -n raftstereo124
+conda activate raftstereo124
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
 
-New local environment and dependencies:
+Add the Raft-Stereo codebase:
 ```bash
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
+
 ```
