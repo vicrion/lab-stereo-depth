@@ -9,8 +9,3 @@ conda create -n raftstereo124
 conda activate raftstereo124
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
-
-Add the Raft-Stereo codebase:
-```bash
-
-```
