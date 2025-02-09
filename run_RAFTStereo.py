@@ -1,6 +1,6 @@
 import os
 
-file_path = 'path_to_your_file'
+file_path = 'test/left'
 if os.path.isfile(file_path):
     print("File exists and can be accessed.")
 else:

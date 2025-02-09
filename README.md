@@ -14,7 +14,18 @@ conda install p7zip
 ```
 
 Run a test to verify the codebase works within the established `conda` environment:
+
 ```bash
-python RAFT-Stereo/demo.py --restore_ckpt models/raftstereo-realtime.pth --shared_backbone --n_downsample 3 --n_gru_layers 2 --slow_fast_gru --valid_iters 7 --corr_implementation reg_cuda --mixed_precision
- --left=test/left.png --right=test/right.png --output=result.png
+cd RAFT-Stereo
+# If on Windows, we want to reverse the '\' to '/' in the full paths for left and right!
+# make sure to use the correct full path for all the data and models:
+python demo.py --restore_ckpt C:/Users/nordw/github/SM-stereo-depth/models/iraftstereo_rvc.pth --context_norm instance -l=C:/Users/nordw/github/SM-stereo-depth/test/left/*.png -r=C:/Users/nordw/github/SM-stereo-depth/test/right/*.png --output_directory C:/Users/nordw/github/SM-stereo-depth/test/out-rvc
+```
+
+We can try a different model as well, for example, to optmize for speed. The faster model requires an additional build step; I had to move all the CUDA code to the parent directory as a few fixes were necessary for more recent CUDA SDK. To build and run:
+```bash
+# build optimization code, it will use CUDA based optimizations directly:
+pip3 install RAFT-Stereo-sampler/.
+# run optimized model:
+python demo.py --restore_ckpt C:/Users/nordw/github/SM-stereo-depth/models/raftstereo-realtime.pth --shared_backbone --n_downsample 3 --n_gru_layers 2 --slow_fast_gru --valid_iters 7 --corr_implementation reg_cuda --mixed_precision -l=C:/Users/nordw/github/SM-stereo-depth/test/left/*.png -r=C:/Users/nordw/github/SM-stereo-depth/test/right/*.png --output_directory C:/Users/nordw/github/SM-stereo-depth/test/out-realtime
 ```
