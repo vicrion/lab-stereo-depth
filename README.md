@@ -24,7 +24,7 @@ Run a test to verify the RAFT-Stereo codebase works within the established `cond
 cd RAFT-Stereo
 # If on Windows, we want to reverse the '\' to '/' in the full paths for left and right!
 # make sure to use the correct full path for all the data and models:
-python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/iraftstereo_rvc.pth --context_norm instance -l=C:/Users/nordw/github/lab-stereo-depth/test/left/*.png -r=C:/Users/nordw/github/lab-stereo-depth/test/right/*.png --output_directory C:/Users/nordw/github/lab-stereo-depth/test/out-rvc
+python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/iraftstereo_rvc.pth --context_norm instance -l=C:/Users/nordw/github/lab-stereo-depth/test/left/*.png -r=C:/Users/nordw/github/lab-stereo-depth/test/right/*.png --output_directory C:/Users/nordw/github/lab-stereo-depth/test/output-raftstereo-rvc
 ```
 
 ### Optimized model and options
@@ -36,11 +36,24 @@ We can try a different model as well, for example, to optmize for speed. The fas
 pip3 install RAFT-Stereo-sampler/.
 # run optimized model:
 cd RAFT-Stereo
-python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/raftstereo-realtime.pth --shared_backbone --n_downsample 3 --n_gru_layers 2 --slow_fast_gru --valid_iters 7 --corr_implementation reg_cuda --mixed_precision -l=C:/Users/nordw/github/lab-stereo-depth/test/left/*.png -r=C:/Users/nordw/github/lab-stereo-depth/test/right/*.png --output_directory C:/Users/nordw/github/lab-stereo-depth/test/out-realtime
+python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/raftstereo-realtime.pth --shared_backbone --n_downsample 3 --n_gru_layers 2 --slow_fast_gru --valid_iters 7 --corr_implementation reg_cuda --mixed_precision -l=C:/Users/nordw/github/lab-stereo-depth/test/left/*.png -r=C:/Users/nordw/github/lab-stereo-depth/test/right/*.png --output_directory C:/Users/nordw/github/lab-stereo-depth/test/output-raftstereo-realtime
 ```
 
 The speedy version should perform (much) faster than the first test; in my case it was a difference of 8 second for the first model and 1 second for the improved one. My GPU is pretty old and basic, so the performance might be much better on more modern Hardware. 
 
 ### Convert for a whole batch
 
-Now we are ready to run a whole batch conversion! 
+Now we are ready to run a whole batch conversion.
+
+Robust model:
+```bash
+python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/iraftstereo_rvc.pth --context_norm instance -l=C:/Users/nordw/dataset/URBAN_F0/1_IMAGE/LEFT/*.png -r=C:/Users/nordw/dataset/URBAN_F0/1_IMAGE/RIGHT/*.png --output_directory C:/Users/nordw/dataset/URBAN_F0/output-RAFT-Stereo-robust/
+```
+
+Optimized model and options:
+
+```bash
+python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/raftstereo-realtime.pth --shared_backbone --n_downsample 3 --n_gru_layers 2 --slow_fast_gru --valid_iters 7 --corr_implementation reg_cuda --mixed_precision -l=C:/Users/nordw/dataset/URBAN_F0/1_IMAGE/LEFT/*.png -r=C:/Users/nordw/dataset/URBAN_F0/1_IMAGE/RIGHT/*.png --output_directory C:/Users/nordw/dataset/URBAN_F0/output-RAFT-Stereo-opt/
+```
+
+### Visualize the result
