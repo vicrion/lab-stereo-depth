@@ -58,6 +58,9 @@ python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/raft
 
 ### Result overview
 
-The presented generic model seems not to work well with Autonomous dataset, and a separate training stage might be required for better results. Example of malformed disparity (not how a "zebra" stripe stands out in its depth):
+The presented generic model seems not to work well with Autonomous dataset, and a separate training stage might be required for better results. Example of malformed disparity (not how a "zebra" stripe stands out in its depth, as well as the whole road disparity was not calculated correctly):
 
 ![Example](./test/output-raftstereo-rvc/000168.png)
+
+## Run NMRF-Stereo
+
