@@ -4,3 +4,6 @@
 [submodule "NMRF"]
 	path = NMRF
 	url = https://github.com/aeolusguan/NMRF.git
+[submodule "libSGM"]
+	path = libSGM
+	url = https://github.com/fixstars/libSGM.git

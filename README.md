@@ -88,3 +88,6 @@ After all the models are downloaded, let's run the test:
 cd NMRF
 python inference.py --input C:/Users/nordw/github/lab-stereo-depth/test/left/000168.png C:/Users/nordw/github/lab-stereo-depth/test/left/000322.png C:/Users/nordw/github/lab-stereo-depth/test/right/000168.png C:/Users/nordw/github/lab-stereo-depth/test/right/000322.png --output C:/Users/nordw/github/lab-stereo-depth/test/output-nmrf-kitti SOLVER.RESUME C:/Users/nordw/github/lab-stereo-depth/models/NMRF/kitti/kitti.pth
 ```
+
+## Run SGM
+
