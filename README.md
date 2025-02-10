@@ -56,4 +56,8 @@ Optimized model and options:
 python demo.py --restore_ckpt C:/Users/nordw/github/lab-stereo-depth/models/raftstereo-realtime.pth --shared_backbone --n_downsample 3 --n_gru_layers 2 --slow_fast_gru --valid_iters 7 --corr_implementation reg_cuda --mixed_precision -l=C:/Users/nordw/dataset/URBAN_F0/1_IMAGE/LEFT/*.png -r=C:/Users/nordw/dataset/URBAN_F0/1_IMAGE/RIGHT/*.png --output_directory C:/Users/nordw/dataset/URBAN_F0/output-RAFT-Stereo-opt/
 ```
 
-### Visualize the result
+### Result overview
+
+The presented generic model seems not to work well with Autonomous dataset, and a separate training stage might be required for better results. Example of malformed disparity (not how a "zebra" stripe stands out in its depth):
+
+![Example](./test/output-raftstereo-rvc/000168.png)
