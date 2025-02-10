@@ -91,3 +91,6 @@ python inference.py --input C:/Users/nordw/github/lab-stereo-depth/test/left/000
 
 ## Run SGM
 
+TODO: C++ libSGM (requires Linux based HW).
+
+For now let's consider a simple Python implementation.

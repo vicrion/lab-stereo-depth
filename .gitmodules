@@ -7,3 +7,6 @@
 [submodule "libSGM"]
 	path = libSGM
 	url = https://github.com/fixstars/libSGM.git
+[submodule "semi-global-matching"]
+	path = semi-global-matching
+	url = https://github.com/beaupreda/semi-global-matching
