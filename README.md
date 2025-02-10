@@ -64,3 +64,27 @@ The presented generic model seems not to work well with Autonomous dataset, and 
 
 ## Run NMRF-Stereo
 
+We can use similar setup to RAFT-Stereo:
+
+```bash
+conda deactivate
+conda create -n nmrf124
+conda activate nmrf124
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip3 install matplotlib tensorboard scipy opencv-python tqdm opt_einsum imageio scikit-image
+pip3 install pyyaml yacs termcolor einops tabulate timm omegaconf
+# conda install ... - might need to run to get some missing dependencies
+```
+
+Build specific CUDA files as per official doc:
+```bash
+cd NMRF/ops
+python setup.py build install
+```
+
+After all the models are downloaded, let's run the test:
+
+```bash
+cd NMRF
+python inference.py --input C:/Users/nordw/github/lab-stereo-depth/test/left/000168.png C:/Users/nordw/github/lab-stereo-depth/test/left/000322.png C:/Users/nordw/github/lab-stereo-depth/test/right/000168.png C:/Users/nordw/github/lab-stereo-depth/test/right/000322.png --output C:/Users/nordw/github/lab-stereo-depth/test/output-nmrf-kitti SOLVER.RESUME C:/Users/nordw/github/lab-stereo-depth/models/NMRF/kitti/kitti.pth
+```
