@@ -82,7 +82,7 @@ cd NMRF/ops
 python setup.py build install
 ```
 
-After all the models are downloaded, let's run the test:
+After all the models are downloaded, let's run the test (the inference is much faster than RAFT-Stereo):
 
 ```bash
 cd NMRF
@@ -93,4 +93,12 @@ python inference.py --input C:/Users/nordw/github/lab-stereo-depth/test/left/000
 
 TODO: C++ libSGM (requires Linux based HW).
 
-For now let's consider a simple Python implementation.
+For now let's consider a simple Python implementation:
+
+```bash
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd semi-global-matching
+python3 sgm.py --left /home/vika/github/vicrion/SM-stereo-depth/test/left/000168.png --right /home/vika/github/vicrion/SM-stereo-depth/test/right/000168.png --output /home/vika/github/vicrion/SM-stereo-depth/test/output-sgm/000168.png --disp 64 --images FALSE --eval FALSE
+```
