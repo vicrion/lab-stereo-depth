@@ -1,4 +1,12 @@
-## Run RAFT-Stereo
+# LAB: generate a depth map from a Simple Stereo setup
+
+Algorithms:
+* SGBM (OpenCV implementation).
+* CRE-Stereo.
+* RAFT-Stereo (for reference).
+* Bonus: C++ implementation of SGBM with result visualization (live).
+
+## RAFT-Stereo
 
 [Download models](https://www.dropbox.com/s/ftveifyqcomiwaq/models.zip&dl=1) and place into `models/` folder (or use official doc method - you can find on [official page](https://github.com/princeton-vl/RAFT-Stereo)).
 
