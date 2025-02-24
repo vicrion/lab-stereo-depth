@@ -1,10 +1,16 @@
 # LAB: generate a depth map from a Simple Stereo setup
 
 Algorithms:
-* SGBM (OpenCV implementation).
-* CRE-Stereo.
-* RAFT-Stereo (for reference).
+* Feasibility using SGBM (OpenCV implementation).
 * Bonus: C++ implementation of SGBM with result visualization (live).
+* Feasibility using CRE-Stereo.
+* RAFT-Stereo (for reference only).
+
+## SGBM example: from raw images to depth
+
+For parameter adjustment and just to see the whole workflow: run provided notebook `depth.ipynb`.
+
+Now let's also try to implement per-batch conversion and use the `test` data for a quick test: `python3 depth.py test/left test/right test/sgbm`.
 
 ## RAFT-Stereo
 
